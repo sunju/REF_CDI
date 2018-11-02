@@ -1,8 +1,8 @@
 clear all
 rng(1)
-n=150;
-L=1024;
-c=[50,50];
+n=150; % dimensions of the image (and reference if used)
+L=1024; % dimensions of the data
+c=[50,50]; % dimensions of the missing center square
 beta=0.5;
 max_iter=200;
 err_thresh=0.05;
