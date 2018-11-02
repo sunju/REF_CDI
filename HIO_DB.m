@@ -6,8 +6,8 @@ c=[50,50]; % dimensions of the missing center square
 beta=0.5;
 max_iter=200;
 err_thresh=0.05;
-ref_flag=1;
-ref_constr_flag=1;
+ref_flag=1; % set to 0 if no reference, and to 1 if reference added to image
+ref_constr_flag=1; % (applicable when ref_flag==1), set to 1 to impose reference pixels during HIO algorithm
 %%
 namestr = 'mimivirus' ;
 stanstr = 'png'      ;
