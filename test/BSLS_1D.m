@@ -14,4 +14,5 @@ fftshift(ifft(y));
  % for simplicity, we assume y is always of even-length, as well as BS_num
 BS_y = fftshift(y);
 BS_y((length(y)/2-BS_num/2+1):(length(y)/2+BS_num/2)) = [];
-length(BS_y)
+
+% estimate the autocorrelation seq
