@@ -8,7 +8,7 @@ max_iter=200;
 err_thresh=0.0000000005;
 ref_flag=0; % set to 0 if no reference, and to 1 if reference added to image
 ref_constr_flag=0; % (applicable when ref_flag==1), set to 1 to impose reference pixels during HIO algorithm
-noise_flag=1; % 0 = no noise, 1 = unscaled Poisson
+noise_flag=2; % 0 = no noise, 1 = unscaled Poisson, 2 = Ponan's noise model
 %%
 namestr = 'mimivirus' ;
 stanstr = 'png'      ;
@@ -34,6 +34,15 @@ X0_os(L/2-n1/2+1:L/2+n1/2,L/2-n2/2+1:L/2+n2/2)=X0;
 Y0=sqrt(abs(fft2(X0_os)).^2);
 if noise_flag==1
     Y0=sqrt(poissrnd(abs(fft2(X0_os)).^2));
+end
+if noise_flag==2
+    n_photon_order = 9;
+    n_photon = 1.67 * 10^n_photon_order;
+    f=Y0;
+    nor_fac = max(abs(f(:)));
+    f = nor_fac * sqrt(  n_photon^-1 * poissrnd( n_photon/nor_fac^2 * abs(f).^2 ));
+    y = f.^2;
+    Y0=sqrt(y);
 end
 %%
 img_init=rand(n,n);

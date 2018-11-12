@@ -5,8 +5,8 @@ nimg = [150,150]; % Total x and y pixels in original image
 nref = [150,150]; % Total x and y pixels in adjacent reference
 % Note: nimg(1) and nref(1) need to be the same size in this implementation
 len = [1001,1001]; % Total x and y pixels in FFT data (needs to be sufficiently large and ODD) 
-ref_choice='L'; %Choose from 'b' (block), 'h' (holog), 'L' (L-shape), 'r' (random-Bernoulli)
-noise_model = 1; % 0 = no noise, 1 = unscaled Poisson, 2 = scaled Poisson (from Ponan)
+ref_choice='h'; %Choose from 'b' (block), 'h' (holog), 'L' (L-shape), 'r' (random-Bernoulli)
+noise_model = 2; % 0 = no noise, 1 = unscaled Poisson, 2 = scaled Poisson (from Ponan)
 namestr = 'mimivirus' ;
 stanstr = 'png'      ;
 X = mat2gray(imread([namestr,'.',stanstr])) ;
