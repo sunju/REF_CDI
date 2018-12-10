@@ -21,7 +21,7 @@ stem3([-bndry:bndry],[-bndry:bndry],scaler_s,'magenta')
 hold off
 %direction = [1 1 0];
 %rotate(hSurface,direction,25)
-legend('Uniform lower bound','Block ref.', 'Pinhole ref.', 'Slit ref.')
-xlabel('x-frequency')
-ylabel('y-frequency')
+legend({'Uniform lower bound','Block ref.', 'Pinhole ref.', 'Slit ref.'},'FontSize',14)
+xlabel('x-frequency','FontSize',18)
+ylabel('y-frequency','FontSize',18)
 %ylim([0,1e-5])

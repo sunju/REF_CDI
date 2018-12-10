@@ -1,8 +1,8 @@
 clear all
 n=64;
 m=1024;
-bndry=500;
-for k2=-bndry:bndry
+bndry=511;
+for k2=-bndry:bndry+1
     k1=0;
     lower_bnd(k2+bndry+1)=1/(m^4);
     scaler_b(k2+bndry+1)=( (1/(m^2))+2*((n-1)/(m^2))*(1-cos(2*pi*k1/m)) )*( (1/(m^2))+2*((n-1)/(m^2))*(1-cos(2*pi*k2/m)));
@@ -10,17 +10,14 @@ for k2=-bndry:bndry
     scaler_s(k2+bndry+1)=(n/(m^2))*( (1/(m^2))+2*((n-1)/(m^2))*(1-cos(2*pi*k2/m)));
 end
 figure;
-plot([-bndry:bndry],lower_bnd,'red')
+plot([-bndry:bndry+1],lower_bnd,'red','LineWidth',2)
 hold on;
-plot([-bndry:bndry],scaler_b,'blue')
+plot([-bndry:bndry+1],scaler_b,'blue','LineWidth',2)
 hold on;
-plot([-bndry:bndry],scaler_p,'green')
+plot([-bndry:bndry+1],scaler_p,'green','LineWidth',2)
 hold on;
-plot([-bndry:bndry],scaler_s,'magenta')
+plot([-bndry:bndry+1],scaler_s,'magenta','LineWidth',2)
 hold off
-%direction = [1 1 0];
-%rotate(hSurface,direction,25)
-legend('Uniform lower bound','Block ref.', 'Pinhole ref.', 'Slit ref.')
-xlabel('y-frequency')
-%ylabel('y-frequency')
-%ylim([0,1e-5])
+legend({'Uniform lower bound','Block ref.', 'Pinhole ref.', 'Slit ref.'},'FontSize',14)
+xlabel('y-frequency','FontSize',18)
+xlim([-512,512])
