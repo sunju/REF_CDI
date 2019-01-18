@@ -67,7 +67,7 @@ for photon_param_ind=1:length(photon_param_range)
             img=X_os(m/2-n/2+1:m/2+n/2,m/2-2*n/2+1:m/2+2*n/2);
             img=X_os(m/2-n/2+1:m/2+n/2,m/2-2*n/2+1:m/2);
         end
-    err_iter_vec(trial)=norm(img0(:)-img(:))/norm(img0(:));
+    err_iter_vec(trial)=(norm(img0(:)-img(:))/norm(img0(:)))^2;
     if photon_param_range(photon_param_ind)==photon_param_rec
         img_rec=real(img);
     end

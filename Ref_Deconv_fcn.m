@@ -63,13 +63,13 @@ for photon_param_ind=1:length(photon_param_range)
         %% Run Referenced Deconvolution Algorithm
         z=img_recov(r, n, ref, ref_type);
         %% Observed Error
-        err_iter_vec(trial)=norm(img(:)-z(:))/norm(img(:));
+        err_iter_vec(trial)=(norm(img(:)-z(:))/norm(img(:)))^2;
     end
     %% Average Observed Error
     err=sum(err_iter_vec)/num_trials;
     %% Expected Error
     c=n_photon/sum(y_clean(:));
-    exp_err=sqrt((1/c)*sum(S(:).*y_clean(:)))/norm(img(:));
+    exp_err=(1/c)*sum(S(:).*y_clean(:))/(norm(img(:))^2);
     err_vec(photon_param_ind)=err;
     exp_err_vec(photon_param_ind)=exp_err;
     %% Save Recovered Image (for specified photons per pixel value)
