@@ -24,25 +24,26 @@ img=imresize(X_0,[n,n]);
 save('Alg_compar.mat')
 %%
 figure;
-stem(photon_param_range,block_err_vec,'red','LineWidth',1,'LineStyle','none')
+semilogy(photon_param_range,block_err_vec,'red','LineWidth',1,'LineStyle','none','Marker','o')
 hold on;
-stem(photon_param_range,block_exp_err_vec,'red','LineWidth',1,'LineStyle','none','Marker','+')
+semilogy(photon_param_range,block_exp_err_vec,'red','LineWidth',1,'LineStyle','none','Marker','+')
 hold on;
-stem(photon_param_range,slit_err_vec,'blue','LineWidth',1,'LineStyle','none')
+semilogy(photon_param_range,slit_err_vec,'blue','LineWidth',1,'LineStyle','none','Marker','o')
 hold on;
-stem(photon_param_range,slit_exp_err_vec,'blue','LineWidth',1,'LineStyle','none','Marker','+')
+semilogy(photon_param_range,slit_exp_err_vec,'blue','LineWidth',1,'LineStyle','none','Marker','+')
 hold on;
-stem(photon_param_range,pinhole_err_vec,'magenta','LineWidth',1,'LineStyle','none')
+semilogy(photon_param_range,pinhole_err_vec,'magenta','LineWidth',1,'LineStyle','none','Marker','o')
 hold on;
-stem(photon_param_range,pinhole_exp_err_vec,'magenta','LineWidth',1,'LineStyle','none','Marker','+')
+semilogy(photon_param_range,pinhole_exp_err_vec,'magenta','LineWidth',1,'LineStyle','none','Marker','+')
 hold on;
-stem(photon_param_range,HIO_block_err_vec,'red','LineWidth',1,'LineStyle','none','Marker','*')
+semilogy(photon_param_range,HIO_block_err_vec,'red','LineWidth',1,'LineStyle','none','Marker','*')
 hold on
-stem(photon_param_range,HIO_slit_err_vec,'blue','LineWidth',1,'LineStyle','none','Marker','*')
+semilogy(photon_param_range,HIO_slit_err_vec,'blue','LineWidth',1,'LineStyle','none','Marker','*')
 hold on
-stem(photon_param_range,HIO_pinhole_err_vec,'magenta','LineWidth',1,'LineStyle','none','Marker','*')
+semilogy(photon_param_range,HIO_pinhole_err_vec,'magenta','LineWidth',1,'LineStyle','none','Marker','*')
 hold on
-stem(photon_param_range,HIO_err_vec,'black','LineWidth',1,'LineStyle','none','Marker','*')
+semilogy(photon_param_range,HIO_err_vec,'black','LineWidth',1,'LineStyle','none','Marker','*')
 hold off
 legend('Ref. Deconv. (Block) - Exp.','Ref. Deconv. (Block) - Theory','Ref. Deconv. (Slit) - Exp.','Ref. Deconv. (Slit) - Theory','Ref. Deconv. (Pinhole) - Exp.','Ref. Deconv. (Pinhole) - Theory','HIO (Block)','HIO (Slit)','HIO (Pinhole)','HIO (No ref.)')
 xlabel('Photons per pixel')
+%ylim([0,0.007])
